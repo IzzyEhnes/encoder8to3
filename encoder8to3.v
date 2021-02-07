@@ -1,5 +1,8 @@
 // Izzy Ehnes
 // encoder8to3.v, 8-to-3 encoder, gate synthesis
+// Version: Icarus Verilog v. 11.0
+// Compile: $ iverilog -o encoder8to3 encoder8to3.v
+// Run: $ vvp encoder8to3
 
 module EncoderMod(i0, i1, i2, i3, i4, i5, i6, i7, o2, o1, o0);
     input i0, i1, i2, i3, i4, i5, i6, i7;
