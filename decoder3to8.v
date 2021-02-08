@@ -4,7 +4,7 @@
 // Compile: $ iverilog -o decoder3to8 decoder3to8.v
 // Run: $ vvp decoder3to8
 
-module DecoderMod(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);
+module DecoderMod(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);  // module definition
     input i2, i1, i0;
     output o0, o1, o2, o3, o4, o5, o6, o7;
 
@@ -25,10 +25,10 @@ module DecoderMod(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);
 endmodule
 
 module TestMod;
-    reg i2, i1, i0;
-    wire o0, o1, o2, o3, o4, o5, o6, o7;
+    reg i2, i1, i0;  // i has 2 bits
+    wire o0, o1, o2, o3, o4, o5, o6, o7;  // 8 additional wires
 
-    DecoderMod my_decoder(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);
+    DecoderMod my_decoder(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);  // create instance
 
     initial begin
         $display("Time  i2  i1  i0   o0  o1  o2  o3  o4  o5  o6  o7");
@@ -37,20 +37,20 @@ module TestMod;
     end
 
     initial begin
-        i2 = 0; i1 = 0; i0 = 0;
-        #1;
-        i2 = 0; i1 = 0; i0 = 1;
-        #1;
-        i2 = 0; i1 = 1; i0 = 0;
-        #1;
-        i2 = 0; i1 = 1; i0 = 1;
-        #1;
-        i2 = 1; i1 = 0; i0 = 0;
-        #1;
-        i2 = 1; i1 = 0; i0 = 1;
-        #1;
-        i2 = 1; i1 = 1; i0 = 0;
-        #1;
-        i2 = 1; i1 = 1; i0 = 1;
+        i2 = 0; i1 = 0; i0 = 0;  // i are 000
+        #1;                      // wait 1 cycle
+        i2 = 0; i1 = 0; i0 = 1;  // i are 001
+        #1;                      // wait 1 cycle
+        i2 = 0; i1 = 1; i0 = 0;  // i are 010
+        #1;                      // wait 1 cycle
+        i2 = 0; i1 = 1; i0 = 1;  // i are 011
+        #1;                      // wait 1 cycle
+        i2 = 1; i1 = 0; i0 = 0;  // i are 100
+        #1;                      // wait 1 cycle
+        i2 = 1; i1 = 0; i0 = 1;  // i are 101
+        #1;                      // wait 1 cycle
+        i2 = 1; i1 = 1; i0 = 0;  // i are 110
+        #1;                      // wait 1 cycle
+        i2 = 1; i1 = 1; i0 = 1;  // i are 111
     end
 endmodule
