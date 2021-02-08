@@ -1,4 +1,8 @@
 // Izzy Ehnes
+// decoder3to8.v, 3-to-8 decoder, gate synthesis
+// Version: Icarus Verilog v. 11.0
+// Compile: $ iverilog -o decoder3to8 decoder3to8.v
+// Run: $ vvp decoder3to8
 
 module DecoderMod(i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);
     input i2, i1, i0;
@@ -30,5 +34,23 @@ module TestMod;
         $display("Time  i2  i1  i0   o0  o1  o2  o3  o4  o5  o6  o7");
         $display("----  ----------   ------------------------------");
         $monitor("   %0d   %b   %b   %b   %b   %b   %b   %b   %b   %b   %b   %b", $time, i2, i1, i0, o0, o1, o2, o3, o4, o5, o6, o7);
+    end
+
+    initial begin
+        i2 = 0; i1 = 0; i0 = 0;
+        #1;
+        i2 = 0; i1 = 0; i0 = 1;
+        #1;
+        i2 = 0; i1 = 1; i0 = 0;
+        #1;
+        i2 = 0; i1 = 1; i0 = 1;
+        #1;
+        i2 = 1; i1 = 0; i0 = 0;
+        #1;
+        i2 = 1; i1 = 0; i0 = 1;
+        #1;
+        i2 = 1; i1 = 1; i0 = 0;
+        #1;
+        i2 = 1; i1 = 1; i0 = 1;
     end
 endmodule
